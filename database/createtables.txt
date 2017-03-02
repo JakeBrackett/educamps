@@ -1,0 +1,19 @@
+create table account(uuid binary(16) NOT NULL, fname varchar(100), lname varchar(200), email varchar(200), phone varchar(15), password varchar(125) NOT NULL, PRIMARY KEY(uuid);
+
+create table child(childid int NOT NULL, uuid binary(16) NOT NULL, childname varchar(400), lastactive date, dob date, other varchar(1000), PRIMARY KEY (childid), FOREIGN KEY (uuid) REFERENCES account(uuid));
+
+create table session(sessionid int NOT NULL, sessionname varchar(100), startdate date, enddate date, fee numeric(10,2), PRIMARY KEY (sessionid));
+
+create table items(itemid int NOT NULL, imgsrc varchar(300), description varchar(1000), stock int, price numeric(14, 2), itemtype char(1), PRIMARY KEY (itemid));
+
+create table orders(orderid int NOT NULL, uuid binary(16) NOT NULL, orderdate date, completed binary(1), PRIMARY KEY (orderid), FOREIGN KEY (uuid) REFERENCES account(uuid));
+
+create table order_item(orderid int NOT NULL, itemid int NOT NULL, orderquantity int, FOREIGN KEY (orderid) references orders(orderid), FOREIGN KEY (itemid) references items(itemid));
+
+create table forumposts(postid int NOT NULL, account binary(16) NOT NULL, text varchar(9000), postdate datetime, isReply binary(1), PRIMARY KEY (postid), FOREIGN KEY (account) references account(uuid));
+
+create table activity(activityid int NOT NULL, activityname varchar(300), PRIMARY KEY (activityid));  
+
+create table session_enrollment(sessionid int NOT NULL, childid int NOT NULL, account binary(16) NOT NULL, activity int NOT NULL, FOREIGN KEY (sessionid) references session(sessionid), FOREIGN KEY(childid) references child(childid), FOREIGN KEY(account) references account(uuid), FOREIGN KEY activity references activity(activityid));
+
+create table memories(memoryid int NOT NULL, account binary(16), description varchar(1000), title varchar(500), filename varchar(600), PRIMARY KEY(memoryid), FOREIGN KEY(account) references account(uuid));
