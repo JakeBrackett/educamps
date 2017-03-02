@@ -1,0 +1,46 @@
+    <!DOCTYPE html>
+        <html>
+          <head>
+              <link rel="stylesheet" href="reg.css">
+          </head>
+        <body>
+            <div id="formBox">
+                <h1>Session Registration</h1>
+                <form action="sessionreg.php" method="post">
+                    <fieldset> 
+                    <legend>Camp Registration:</legend>
+                    <br>
+                    <label>Enter Child's Name and DOB:</label> 
+                    <input type="text" class ="childname" name="childname[0]" required><input type="date" name="dob[0]"<br>
+                    <textarea>Enter Special Notes</textarea><br>
+                    <button id="newchild">(+) Add Another Child</button><br><br>
+                    <label>Select Camp Date:</label>
+                  <select name="session">
+                    <option value="summer">Summer</option>
+                    <option value="winter">Winter</option>
+                    <option value="spring">Spring</option>
+                  </select>
+                  <br>
+                    <label>Select Activity Type:</label>
+                  <select name="activity">
+                    <option value="computer">Computer Activites</option>
+                    <option value="robotics">Robotics</option>
+                  </select>
+                <br>
+                    <label id="paylabel">Pay for Session:</label>
+                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                    <input type="hidden" name="cmd" value="_s-xclick">
+                    <input type="hidden" name="hosted_button_id" value="DTVYUYBC427VW">
+                    <input type="image" id= "paypal" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                    <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+                    </form>
+                <br>
+                <label class="strlabel">Total Price: </label>
+                <input type="text" id="total" value="$0.00" name="total" readonly>
+                </fieldset>
+                <br>
+                    <input id="regsubmit" type="submit" value="Submit">
+                </form>
+            </div>
+        </body>
+</html>
