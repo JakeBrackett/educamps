@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+        <html>
+          <head>
+              <link rel="stylesheet" href="reg.css">
+          </head>
+          <body>
+            <div id="#formBox">
+              <h1>Registration</h1>
+              <form action="reg.php" method="POST">
+                <fieldset> <legend>Personal Information:</legend>
+                    <br>
+                    <label>First Name:</label><input type="text" name="fname" required><br>
+                    <label>Last Name:</label><input type="text" name="lname" required> <br>
+                    <label>Email:</label><input type="text" name="email" required><br>
+                    <label>Phone Number:</label><input type="text" name="phonenum" required><br>
+                    <label>Email:</label><input type="text" name="email" required><br>
+                    <label>Password:</label><input type="password" name="password" required><br>
+                    <label>Enter Again:</label><input type="password" name="passagain" required><br>   
+                </fieldset>
+                <br>
+                <fieldset> 
+                    <legend>Camp Registration:</legend>
+                    <br>
+                    <label>Select Camp Date:</label>
+                  <select name="session">
+                    <option value="summer">Summer</option>
+                    <option value="winter">Winter</option>
+                    <option value="spring">Spring</option>
+                  </select>
+                  <br>
+                    <label>Select Activity Type:</label>
+                  <select name="activity">
+                    <option value="computer">Computer Activites</option>
+                    <option value="robotics">Robotics</option>
+                  </select>
+                </fieldset>
+                <br>
+                <input id="regsubmit" type="submit">
+            </form> 
+           </div>
+        </body>
+        </html>
