@@ -8,17 +8,17 @@
 <body>
 <div id="header">
   <img id="logo" src="educampslogo.png" alt="eduCamps" height="20%" width="20%"/>
-  <a href="/login/"> LOGIN </a> <br> <br>
-  <a href="/register/"> REGISTER </a>
+  <a href="#"> LOGIN </a> <br> <br>
+  <a href="#"> REGISTER </a>
   </div>  
 <div id="nav">
     <ul>
-    <li> <a href="/home/"> HOME </a> </li>
-    <li> <a href="/schedule/"> SCHEDULE </a> </li>
-    <li> <a href="/catalog/"> CATALOG </a> </li>
+    <li> <a href="#"> HOME </a> </li>
+    <li> <a href="#"> SCHEDULE </a> </li>
+    <li> <a href="#"> CATALOG </a> </li>
     <li> <a class="current" href=#> REVIEW </a> </li>
-    <li> <a href="/visual"> VISUALIZATION </a> </li>
-    <li> <a href="/activity/"> ACTIVITY </a> </li>
+    <li> <a href="#"> VISUALIZATION </a> </li>
+    <li> <a href="#"> ACTIVITY </a> </li>
   </ul>
   </div>
 
@@ -42,23 +42,38 @@
             textbox.cols = "100";
             document.getElementById("upload").appendChild(textbox);
             var post = document.createElement("INPUT");
-            post.type="submit";
-            post.value="POST";
+            post.type = "submit";
+            post.value = "POST";
             document.getElementById("upload").appendChild(post);
+            post.onclick = function() {submit_t()};
         }
-    </script>
-    <script>
+    
         function uploadImg() {
             document.getElementById("upload").innerHTML = "";
             document.getElementById('forumtype').value= "memories";
+            var cap = document.createElement("INPUT");
+            cap.type = "text";
+            cap.placeholder = "Add a Caption";
+            cap.maxLength = 50;
+            document.getElementById("upload").appendChild(cap);
+            var lnbr = document.createElement("BR");
+            document.getElementById("upload").appendChild(lnbr);
             var imgs = document.createElement("INPUT");
-            imgs.type="file";
-            imgs.size="40";
+            imgs.type = "file";
             document.getElementById("upload").appendChild(imgs);
             var post = document.createElement("INPUT");
-            post.type="submit";
-            post.value="UPLOAD";
+            post.type = "submit";
+            post.value = "UPLOAD";
             document.getElementById("upload").appendChild(post);
+            post.onclick = function() {submit_i()};
+        }
+    
+        function submit_i(){
+            alert("Submitted! Your image will appear in the home page!");
+        }
+    
+        function submit_t(){
+            alert("Submitted! Your review will appear below!");
         }
     </script>
 </form>
@@ -68,7 +83,7 @@
 <br>
 <div id="review" name="review">
     <h3> Reviews </h3>
-    <?PHP
+<!--    <?PHP
         $db = mysql-connect( );
         mysql_select_db(" ");
         $posts=mysql_query("SELECT text FROM forumposts ORDER BY postdate");
@@ -79,7 +94,7 @@
     <?PHP
         }
     ?>
-    
+-->
     
 </div>
 
