@@ -1,70 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head> 
-<meta charset="utf-8" /> 
-<link rel="stylesheet" type="text/css" href="default_layout.css">
-<link rel="stylesheet" type="text/css" href="Homepage.css">
+<head>
+<meta charset="utf-8" />
+<title>eduCamps</title>
+<link rel="stylesheet" type="text/css" href="css/default_layout.css">
+<link rel="stylesheet" type="text/css" href="css/Homepage.css">
+
 </head>
 
 <body>
-	<div id="opening_logo">
-		<img src="educampslogo.png" alt="Edu Camps">
-		
-	</div>
+<div id="header">
+    <img id="logo" src="img/educampslogo.png" alt="Edu Camps">
 
-	<form>
-		<input type="username" size="20" maxlength="14" /> username
-		<input type="password"  size="15" maxlength="12" /> password
-		<input type="submit" value="Log In" /> 
-	</form>
-
-	<div id="nav" ="nav">  
-
+	<div id="nav">
          <ul>
-         	<li> <a href="#home"> Home </a> </li>
-         	<li> <a href="forum"> Forum</a> </li>
-         	<li> <a href="registration"> Registration</a> </li>
+         	<li> <a href="#" class="current"> Home </a> </li>
+            <li> <a href="#"> Schedule</a> </li>
+            <li> <a href="regpage/registrationpage.html"> Registration</a> </li>
+            <li> <a href="#"> Activities</a> </li>
+         	<li> <a href="forum.html"> Forum</a> </li>
          	<li> <a href="Catalog.html"> Catalog</a> </li>
-         	<li> <a href="visualization"> Visualization</a> </li>
-         	<li> <a href="activities"> Activities</a> </li>
-         	<li> <a href="sharing"> Sharing</a> </li>
-         	<li> <a href="schedule"> Schedule</a> </li>
-         	<li> <a href="faq's"> FAQ</a></li>
+         	<li> <a href="#"> Visualization</a> </li>
+            <li> <a href="#" class="special"> Sign In </a> </li>
          </ul>
-    		<div> 
-         		<input type="text" name="search" placeholder="SEARCH..">
-    		</div>
-	
 	</div>
+</div>
 
-	<div id="box1">
-		
-		<div id="sign_up">
-			 SAN FRANSISCO BAY AREA  EDU SUMMER CAMP <br> EARLY BIRDS SAVE 25$ FOR EVERY WEEK OF CAMP 
+<div id="maincontent">
+    <div id="about-us">
+        <h1> About Us </h1>
+       <p>EduCamps Inc is an organization that offers educational summer camps for children aged 10-14, across the country. The camps are offered in Winter and Summer months and each camp is either for 1 or 2 weeks. Each camp offers computer-based activities, robotics activities and outdoor activities.</p>
+       
+    </div>
+
+    <div id="class-list">
+		<div class="classes">
+            <h2> Computer-Based </h2> <hr>
+            <img src="img/computer.jpg" alt="Computer Class">
+			<hr>
+			<p>  Learn and practice basic computer science concepts by building your own verions of popular web applications using python.</p>
 		</div>
 
-
-		<div id="box2">
-			
-		</div>
-
-		<div id="box3">
-			<h2> Computer-Based </h2> <hr> 
-			<p>  Learn and practice basic computer science concepts by building your own verions of popular web applications using python. </br>  </p>
-		</div>
-
-		<div id="box4">
-			<h2> Robotics </h2> <hr> 
+		<div class="classes">
+            <h2> Robotics </h2> <hr>
+            <img src="img/robotics.jpg" alt="Robotics Class">
+			<hr>
 			<p> You will be introduced to the basics of modeling, design, planning, and control of robot systems. A basic robot is built using knowledge gained at the end of camp. </p>
 		</div>
 
-		<div id="box5">
-			<h2>  Outdoor  </h2> <hr> 
+		<div class="classes">
+            <h2>  Outdoor  </h2> <hr>
+            <img src="img/outdoor.jpg" alt="Outdoor Class">
+			<hr>
 			<p> You will be able to chooses between Hiking or Mountain Biking as your prefered outdoor activity. </p>	
 		</div>
-
-		<div id="philosophy">
+    </div>
+    
+    <div id="sign-up">
+        <h2>Get a 10% discount for the second child</h2>
+    </div>
+    
+    <div id="philosophy">
 			<h3> Philosophy </h3>
 				<ul>
 					<li> a place where creativity and expression are encouraged </li>
@@ -72,17 +69,15 @@
 					<li> a community where the courage to try is celebrated and the desire to succeed is supported </li>
 					<li> an opportunity for children to grow through accomplishment and respect</li>
 				</ul>
-		</div>
+    </div>
+
+</div>
 
 
-	</div>
-
-
- <footer class="footer-distributed">
-
-
-				<p class="footer-links">
-					<a href="#">Home</a>
+ <footer>
+    <p class="backtotop"> <a href="#nav">Back to Top</a> </p>
+				<p>
+					<a href="#nav">Home</a>
 					·
 					<a href="#">Contact Us</a>
 					·
@@ -95,7 +90,7 @@
 					<a href="#">Registration</a>
 				</p>
 
-				<p>EDU Kids Camp 2017</p>
+				<p>eduCamps 2017 -- Team ?</p>
 			
 
  </footer>
