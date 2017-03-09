@@ -4,37 +4,35 @@
     overflow:hidden;
     height: 400px;
     position: relative;
+    margin-bottom: 40px;
 }
 
 #maincontent {
    	     display: block;
    	     width: 100%;
-   	     float: center;
-
    }
 
 #about-us{
     margin:30px 0;
     padding: 4.75%;
+    width: 35.75%;
+    float: left;
 }
 
-#about-us p{
-    width: 50%;
-}
-
-#about-us img{
+#pic1 {
+    margin: 50px 0;
+    padding-right: 4.75%;
     width: 50%;
 }
 
 #class-list{
-    height: 400px;
+    display: inline-block;
     margin:50px 0;
-
 }
 
 .classes {
+    display: inline-block;
    	width: 27%;
-   	height: 400px;
    	float: left;
    	position: relative;
     margin-left: 4.75%;
@@ -47,28 +45,31 @@
 
 
 .classes hr {
-    border-width: 2px;
+    border: 0;
+    height: 2px;
+    background-image: linear-gradient(to right, #ccc, #3C434D, #333, #3C434D, #ccc);
     position: relative;
+    width: 100%;
 }
 
-.classes h2 {
+hr{
+    width:95%;
+    text-align: center;
+    
+}
+
+.classes h3 {
     color: #3C434D;
     font-size: 24px;
     font-family: 'Arvo', sans-serif;
     text-align: center;
     }
 
+
 #sign-up{
     clear: both;
     position: relative;
 }
-
-#sign-up h2 {
-    color: #3BB9FF;
-    text-align: center;
-    font-size: 40px;
-    font-family: 'Arvo', sans-serif;
-    }
 
 #philosophy  {
       clear: both;
@@ -77,7 +78,7 @@
       padding-bottom:40px;
     }
 
-#philosophy h3 {
+#philosophy h2 {
     font-family: 'Arvo' sans-serif;
     color: black;
     font-size: 30px;

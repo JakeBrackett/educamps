@@ -1,6 +1,7 @@
 body{
     margin:0;
     font-family: 'Arvo', sans-serif;
+    background-color: #fffdf9;
 }
 
 #header{
@@ -53,13 +54,20 @@ body{
 
 
 #nav a:hover:not(.current){
-   	background-color: #27C308;
+   	background-color: #0088cc;
     color:white;
    	
 }
 
+/* 
+    #3BB9FF  light blue
+    #0088cc  blue
+    #5f6977  light grey
+    #a8afb7  even lighter grey
+ */
+
 #nav .current{
-    background-color: #27C308;
+    background-color: #0088cc;
     color:white;
 }
 
