@@ -48,7 +48,7 @@
             document.getElementById('forumtype').value= "forumposts";
             var textbox = document.createElement("TEXTAREA");
             textbox.rows = "8";
-            textbox.cols = "200";
+            textbox.id="textbox";
             document.getElementById("upload").appendChild(textbox);
             var lnbr = document.createElement("BR");
             document.getElementById("upload").appendChild(lnbr);
@@ -63,6 +63,7 @@
             document.getElementById("upload").innerHTML = "";
             document.getElementById('forumtype').value= "memories";
             var cap = document.createElement("INPUT");
+            cap.id="caption";
             cap.type = "text";
             cap.placeholder = "Add a Caption";
             cap.maxLength = 100;
@@ -72,6 +73,7 @@
             document.getElementById("upload").appendChild(lnbr);
             var imgs = document.createElement("INPUT");
             imgs.type = "file";
+            imgs.id="imgs";
             document.getElementById("upload").appendChild(imgs);
             var post = document.createElement("INPUT");
             post.type = "submit";
