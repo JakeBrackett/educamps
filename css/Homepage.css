@@ -2,7 +2,7 @@
     background-image: url("../img/header1.jpg");
     background-size:100%;
     overflow:hidden;
-    height: 400px;
+    height: 600px;
     position: relative;
     margin-bottom: 40px;
 }
@@ -12,11 +12,32 @@
    	     width: 100%;
    }
 
+#maincontent p{
+    color: #3C434D;
+    line-height: 30px;
+}
+
 #about-us{
     margin:30px 0;
     padding: 4.75%;
     width: 35.75%;
     float: left;
+}
+
+#about-us button{
+    background-color: #0088cc;
+    border: none;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+}
+
+#about-us button a{
+    color: white;
+    text-decoration: none;
 }
 
 #pic1 {
@@ -52,35 +73,43 @@
     width: 100%;
 }
 
+.classes h3 {
+    color: black;
+    font-size: 24px;
+    text-align: center;
+}
+
+.classes p{
+    line-height:25px;
+}
+
 hr{
     width:95%;
     text-align: center;
     
 }
 
-.classes h3 {
-    color: #3C434D;
-    font-size: 24px;
-    font-family: 'Arvo', sans-serif;
-    text-align: center;
-    }
-
-
-#sign-up{
-    clear: both;
-    position: relative;
-}
-
-#philosophy  {
+#philosophy {
       clear: both;
       position: relative;
-      padding-top:20px;
-      padding-bottom:40px;
+      padding: 4.75%;
     }
 
 #philosophy h2 {
-    font-family: 'Arvo' sans-serif;
     color: black;
     font-size: 30px;
     text-align: center;
 }
+
+#philosophy li{
+    color:#3C434D;
+    line-height:30px;
+}
+
+
+
+
+
+
+
+
