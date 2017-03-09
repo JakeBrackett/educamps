@@ -3,13 +3,15 @@
 <head> 
 <meta charset="utf-8" /> 
 <title> Forum </title>
+<link href="img/transparentcaplogo.png" type="image/gif" rel="shortcut icon" />
+
   <link rel="stylesheet" type="text/css" href="css/default_layout.css">
   <link rel="stylesheet" type="text/css" href="css/forum.css">
 
 </head>
 <body>
     <div id="header">
-        <img id="logo" src="img/educampslogo.png" alt="Edu Camps">
+        <img id="logo" src="img/educampslogo1.png" alt="Edu Camps">
             
         <div id="nav">
                 <ul>
@@ -45,9 +47,11 @@
             document.getElementById("upload").innerHTML = "";
             document.getElementById('forumtype').value= "forumposts";
             var textbox = document.createElement("TEXTAREA");
-            textbox.rows = "4";
-            textbox.cols = "100";
+            textbox.rows = "8";
+            textbox.cols = "200";
             document.getElementById("upload").appendChild(textbox);
+            var lnbr = document.createElement("BR");
+            document.getElementById("upload").appendChild(lnbr);
             var post = document.createElement("INPUT");
             post.type = "submit";
             post.value = "POST";
@@ -61,7 +65,8 @@
             var cap = document.createElement("INPUT");
             cap.type = "text";
             cap.placeholder = "Add a Caption";
-            cap.maxLength = 50;
+            cap.maxLength = 100;
+            cap.value="My Memories";
             document.getElementById("upload").appendChild(cap);
             var lnbr = document.createElement("BR");
             document.getElementById("upload").appendChild(lnbr);
@@ -76,11 +81,11 @@
         }
     
         function submit_i(){
-            alert("Submitted! Your image will appear in the home page!");
+            alert("Your image is submitted! Refresh page to see.");
         }
     
         function submit_t(){
-            alert("Submitted! Your review will appear below!");
+            alert("Your review is submitted! Refresh page to see.");
         }
     </script>
 </form>
