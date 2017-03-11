@@ -1,7 +1,7 @@
 <? php 
     $servername = "localhost"; 
     $username = "root";
-    $password = "sql*OVERmysql";
+    $password = "";
     $dbname = "educamps";
     
     $conn = new mysqli($servername, $username, $password, $dbname);
@@ -15,12 +15,7 @@
     $phonenum = mysqli_real_escape_string($conn, $_POST["phonenum"]);
     $password = mysqli_real_escape_string($conn, $_POST["password"]);
     
-    function createSalt(){
-        $text = md5(uniqid(rand(), TRUE));
-        return substr($text, 0, 3);
-    }
-    $salt = createSalt();
-    $password = crypt($password, $salt);
+    $password = crypt($password);
     
 
     #Generate a random key from /dev/urandom, source - https://stackoverflow.com/questions/637278/what-is-the-best-way-to-generate-a-random-key-within-php
@@ -47,4 +42,4 @@
     }
 
     mysqli_close($conn);
-    ?>
+?>

@@ -3,7 +3,16 @@
     background-color: rgba(181, 252, 181, 0.61);
     border-radius: 5px;
 }
-
+#loginBox{
+    padding: 10px;
+    background-color: rgba(181, 252, 181, 0.61);
+    border-radius: 5px;
+    width: 50%;
+    margin: auto;
+}
+#loginBox h1{
+    text-align: center;
+}
 input[type=text], input[type=password] {
     font-size: 0.8em;
     width: 100%;

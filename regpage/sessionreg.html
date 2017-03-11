@@ -2,19 +2,41 @@
         <html>
           <head>
               <link rel="stylesheet" href="reg.css">
+              <meta charset="utf-8" />
+              <title>eduCamps</title>
+              <link href="img/transparentcaplogo.png" type="image/gif" rel="shortcut icon" />
+              <link rel="stylesheet" type="text/css" href="/css/default_layout.css">
+              <link rel="stylesheet" type="text/css" href="/css/Homepage.css">
+
           </head>
         <body>
-            <div id="formBox">
+            <div id="header">
+    <img id="logo" src="img/educampslogo1.png" alt="Edu Camps">
+
+	<div id="nav">
+         <ul>
+         	<li> <a href="#" class="current"> Home </a> </li>
+            <li> <a href="#"> Schedule</a> </li>
+            <li> <a href="regpage/registrationpage.html"> Registration</a> </li>
+            <li> <a href="#"> Activities</a> </li>
+         	<li> <a href="forum.html"> Forum</a> </li>
+         	<li> <a href="Catalog.html"> Catalog</a> </li>
+         	<li> <a href="#"> Visualization</a> </li>
+            <li> <a href="#" class="special"> Sign In </a> </li>
+         </ul>
+	</div>
+</div>
+
+            <div id="maincontent">
                 <h1>Session Registration</h1>
                 <form action="sessionreg.php" method="post">
                     <fieldset> 
                     <legend>Camp Registration:</legend>
                     <br>
                     <label>Enter Child's Name and DOB:</label> 
-                    <input type="text" class ="childname" name="childname[0]" required><input type="date" name="dob[0]"<br>
-                    <textarea>Enter Special Notes</textarea><br>
-                    <button id="newchild">(+) Add Another Child</button><br><br>
-                    <label>Select Camp Date:</label>
+                    <input type="text" class ="childname" name="childname[0]" required><input type="date" name="dob[0]"><br>
+                    
+                <label>Select Camp Date:</label>
                   <select name="session">
                     <option value="summer">Summer</option>
                     <option value="winter">Winter</option>
@@ -25,8 +47,9 @@
                   <select name="activity">
                     <option value="computer">Computer Activites</option>
                     <option value="robotics">Robotics</option>
-                  </select>
-                <br>
+                  </select><br>
+                    <textarea rows=7 cols=100>Enter Special Notes</textarea><br>
+                    <button id="newchild">(+) Add Another Child</button><br><br>               
                     <label id="paylabel">Pay for Session:</label>
                     <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
                     <input type="hidden" name="cmd" value="_s-xclick">
