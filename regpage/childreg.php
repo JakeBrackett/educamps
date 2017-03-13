@@ -3,11 +3,11 @@
     if(!isSet($_SESSION["uuid"])){
         header("location: login.php");
     }
-    $servername = "127.0.0.1"; 
-    $username = "dchan1";
+    $servername = getenv('IP');
+    $username = getenv('C9_USER');
     $password = "";
-    $dbname = "c9";
-    $port = 3306;
+    $database = "c9";
+    $dbport = 3306;
     
     $conn = new mysqli($servername, $username, $password, $dbname, $port);
     if($conn->connect_error) {
@@ -17,7 +17,9 @@
     $activity = mysqli_real_escape_string($conn, $_POST["activity"]);
     $uuid = mysqli_real_escape_string($conn, $_SESSION["uuid"]);
     $total = mysqli_real_escape_string($conn, $_POST["total"]);
+    $camp = mysqli_real_escape_string($conn, $_POST["camp"]);
     $regtimestamp = date("Y-m-d H:i:s");
+
 
     if(!activity or !total or !regtimestamp){
         die("ERROR: FIELD MISSING!");
@@ -34,60 +36,29 @@
         if (!result0){
             die("Inserting Error on sql0");
         }
-        $sql1 = "INSERT INTO session_enrollment(sessiontimestamp, enrollpaid, childid, account, activity) ";
+        $sql1 = "INSERT INTO session_enrollment(sessiontimestamp, enrollpaid, childid, account, activity, campid) ";
         $sql1 .= "VALUES ('$regtimestamp', '$total', LAST_INSERT_ID(), '$uuid', "
-        $sql1 .= "(SELECT activityid FROM activity WHERE activityname = '$activity'));";
+        $sql1 .= "(SELECT activityid FROM activity WHERE activityname = '$activity'), "
+        $sql1 .= "(SELECT campid FROM camps WHERE campname = '$camp'));";
         $result1 = mysqli_query($conn, $sql1);
         if (!result1){
             die("Inserting Error on sql1");
         }
+        $sql2 = "UPDATE camps SET enrolled = enrolled + 1 where campname = '$camp';";
+        result2 = mysqli_query($conn, $sql2) or die("Inserting error on sql2");
         mysqli_commit($conn);
     }
     mysqli_close($conn);
 ?>
 <html>
-          <head>
-              <link rel="stylesheet" href="reg.css">
-              <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-              <script src="childreg.js"></script>
-          </head>
+        <head>
+        </head>
         <body>
-            <div id="formBox">
-                <h1>Session Registration</h1>
-                <form id="campregform" action="sessionreg.php" method="post">
-                    <fieldset id="mainfs"> 
-                        <legend>Camp Registration:</legend>
-                        <br>
-                        <fieldset id="child0">
-                            <legend>Child 1</legend>
-                            <label>Enter Child's Name:</label> 
-                            <input type="text" class ="childname" name="childname[0]" required><br>
-                            <label>Date of Birth:</label>
-                            <input type="date" name="dob[0]"><br>
-                       
-                            <textarea rows=7 cols=100 placeholder="Enter Any Special Notes..."></textarea><br>
-                        </fieldset>
-                        <div id = "buttons">
-                            <button type="button" id="newchild" class="childbutton">(+) Add Another Child</button>
-                        </div>
-                <br><br>
-                       <label>Select Camp Date:</label>
-                              <select id="camps" name="session">
-                                <option value="summer">Summer</option>
-                              </select>
-                            
-                            <label>Select Activity Type:</label>
-                            <select id="activity" name="activity">
-                                <option value="computer">Computer Activites</option>
-                                <option value="robotics">Robotics</option>
-                            </select><br>
-                <br>
-                <label class="strlabel">Total Price: </label>
-                <input type="text" id="total" value="$0.00" name="total" readonly>
-                </fieldset>
-                <br>
-                    <input id="regsubmit" type="submit" value="Submit">
-                </form>
-            </div>
+          <div id="successbox">
+            <img src="/img/educampslogo1.png">
+            <img src="/img/success.jpg">
+              <p>Thanks for Registering!</p>
+              <p>Enter code: EDUCAMPER at checkout to recieve a discount on cool gear!</p>
+        </div>
         </body>
 </html>

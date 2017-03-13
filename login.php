@@ -3,11 +3,11 @@
     if(isSet($_SESSION["email"])){
         header("location: childreg.php");
     }
-    $servername = "127.0.0.1"; 
-    $username = "dchan1";
+    $servername = getenv('IP');
+    $username = getenv('C9_USER');
     $password = "";
-    $dbname = "c9";
-    $port = 3306;
+    $database = "c9";
+    $dbport = 3306;
 
     if (!empty($_POST['email']) && !empty($_POST['password'])) {
           $conn = new mysqli($servername, $username, $password, $dbname, $port);

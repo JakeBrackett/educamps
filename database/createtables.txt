@@ -2,7 +2,9 @@ create table account(uuid binary(16) NOT NULL, fname varchar(100), lname varchar
 
 create table child(childid int NOT NULL AUTO_INCREMENT, uuid binary(16) NOT NULL, childname varchar(400), dob date, other varchar(1000), PRIMARY KEY (childid), FOREIGN KEY (uuid) REFERENCES account(uuid));
 
-create table camps(campid int NOT NULL AUTO_INCREMENT, campname varchar(400), campcapacity int, enrolled int, campcost numeric(14,2),  campdirector varchar(200), campname varchar(100), campaddr varchar(300), campofficeloc varchar(300), PRIMARY KEY (campid));
+create table camplocation(camplocid int NOT NULL AUTO_INCREMENT, camplocname varchar(400),  campdirector varchar(200), campaddr varchar(300), campofficeloc varchar(300), PRIMARY KEY (camplocid));
+
+create table camps(campid int NOT NULL AUTO_INCREMENT, camplocid int NOT NULL, campname varchar(400), startdate date, enddate date, campcost numeric(14,2), enrolled int, campcapacity int, PRIMARY KEY (sessionid), FOREIGN KEY (camplocid) references camps(campid)) ;
 
 create table items(itemid int NOT NULL AUTO_INCREMENT, imgsrc varchar(300), description varchar(1000), stock int, price numeric(14, 2), itemtype char(1), PRIMARY KEY (itemid));
 
@@ -16,6 +18,6 @@ create table activity(activityid int NOT NULL AUTO_INCREMENT, activityname varch
 
 create table camp_activity(activityid int NOT NULL, campid int NOT NULL, FOREIGN KEY (activityid) references activity(activityid), FOREIGN KEY (campid) references camps(campid));
 
-create table session_enrollment(sessionenrollid int NOT NULL AUTO_INCREMENT, sessiontimestamp datetime, enrollpaid numeric(14,2), childid int NOT NULL, account binary(16) NOT NULL, activity int NOT NULL, PRIMARY KEY (sessionenrollid), FOREIGN KEY (sessionid) references session(sessionid), FOREIGN KEY(childid) references child(childid), FOREIGN KEY(account) references account(uuid), FOREIGN KEY activity references activity(activityid));
+create table session_enrollment(sessionenrollid int NOT NULL AUTO_INCREMENT, sessiontimestamp datetime, enrollpaid numeric(14,2), childid int NOT NULL, account binary(16) NOT NULL, activity int NOT NULL, campid int NOT NULL, PRIMARY KEY (sessionenrollid), FOREIGN KEY (sessionid) references session(sessionid), FOREIGN KEY(childid) references child(childid), FOREIGN KEY(account) references account(uuid), FOREIGN KEY activity references activity(activityid), FOREIGN KEY (campid) references camps(campid));
 
 create table memories(memoryid int NOT NULL AUTO_INCREMENT, account binary(16), description varchar(1000), filename varchar(600), PRIMARY KEY(memoryid), FOREIGN KEY(account) references account(uuid));
