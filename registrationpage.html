@@ -1,3 +1,10 @@
+<?php
+    session_start();
+    if(isSet($_SESSION["uuid"])){
+        header("location: childreg.php");
+    }
+?>
+
 <!DOCTYPE html>
         <html>
           <head>
@@ -6,7 +13,7 @@
           <body>
             <div id="formBox">
               <h1>Registration</h1>
-              <form action="reg.php" method="POST">
+              <form action="processreg.php" method="POST">
                 <fieldset> <legend>Personal Information:</legend>
                     <br>
                     <label>First Name:</label><input type="text" name="fname" required><br>

@@ -21,7 +21,6 @@
         if($uuidget){
             $uuid = mysqli_fetch_array($uuid_get);
             $_SESSION['valid'] = true;
-            $_SESSION['timeout'] = time();
             $_SESSION['uuid'] = $uuid['uuid'];
             $_SESSION['email'] = $_POST["email"];
             echo "<div id='msg'>Login Complete! Thanks'</div>";
