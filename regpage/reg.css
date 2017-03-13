@@ -90,7 +90,7 @@ input[type=date]{
     box-sizing: border-box;
 }
 
-#newchild {
+.childbutton {
     background-color: #4CAF50;
     border: none;
     color: white;
@@ -122,6 +122,10 @@ label.strlabel{
 }
 
 #total{
-    width: 8%;
+    width: 100px;
     margin-left: 10px;
+}
+
+#msg{
+    background-color: red;
 }
