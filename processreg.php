@@ -1,18 +1,15 @@
 <?php 
     session_start();
-    if(isSet($_SESSION["email"])){
-        header("location: index.html");
-    }
-    
+
     $servername = getenv('IP');
     $username = getenv('C9_USER');
     $password = "";
-    $database = "c9";
+    $dbname = "c9";
     $dbport = 3306;
 
-    $conn = new mysqli($servername, $username, $password, $dbname, $port);
-    if($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
+    $conn = mysqli_connect($servername, $username, $password, $dbname, $port);
+    if(!$conn) {
+        die("Connection failed");
     }
     // Get user data
     $fname = mysqli_real_escape_string($conn, $_POST["fname"]);
@@ -23,45 +20,20 @@
     
     $password = crypt($password);
     
-
-    //source - https://stackoverflow.com/questions/637278/what-is-the-best-way-to-generate-a-random-key-within-php
-    function get_key($bit_length = 16){
-        $fp = @fopen('/dev/urandom','rb');
-        if ($fp !== FALSE) {
-            $key = substr(base64_encode(@fread($fp,($bit_length + 7) / 8)), 0, (($bit_length + 5) / 6)  - 2);
-            @fclose($fp);
-            return $key;
-        }
-        return null;
-    }
-    $uuid = getkey();
-    if(uuid == NULL)
+    $uuid = openssl_random_pseudo_bytes(2);
+    $value = unpack('H*', $uuid);
+    $uuid = base_convert($value[1], 16, 2);
+    if($uuid == NULL){
         die("failed to generate UUID");
-
+    }
     
     $sql = "INSERT INTO account(uuid, fname, lname, email, phone, password) VALUES ('$uuid', '$fname', '$lname', '$email','$phonenum', '$password')";
-    if (mysqli_query($conn, $sql)) {
-        $_SESSION["uuid"] = $uuid;
-        $_SESSION["email"] = $email;
-        $_SESSION['valid'] = true;
- ?>
+    if (mysqli_query($conn, $sql)){
+         $_SESSION["uuid"] = $uuid;
+         $_SESSION["email"] = $email;
+         $_SESSION['valid'] = true;
+         header("Location: index.php");
 
-<!DOCTYPE html>
-        <html>
-          <head>
-              <link rel="stylesheet" href="css/reg.css">
-          </head>
-          <body>
-            <div id="formBox">
-              <h1>Success!</h1>
-                <br><br>
-                <h3><a href="index.html">Go Home</a></h3>
-                <h3><a href="regpage/childreg.php">Register Child For Camp!</a></h3>
-            <br> 
-           </div>
-        </body>
-        </html>
-<?php;
    } 
     else {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);

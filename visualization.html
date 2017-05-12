@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>eduCamps</title>
+  <link href="img/transparentcaplogo.png" type="image/gif" rel="shortcut icon" />
+  <link rel="stylesheet" type="text/css" href="css/default_layout.css">
+  <link rel="stylesheet" type="text/css" href="css/visualization.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+</head>
+
+<body>
+  <div id="header">
+  </div>
+
+  <div id="id01" class="modal">
+  </div>
+
+<?php session_start(); ?>
+<?php if($_SESSION['valid']): ?>
+ <script src="/scripts/navBarLoggedIn.js"></script>
+<?php else: ?>
+ <script src="/scripts/navBar.js"></script>
+<?php endif; ?>
+
+<div id="maincontent">
+   <div id="intro">
+        <p id="introdes">Here is a quick demonstration of the data from the kids from our camps</p>
+        <div class="dropdown" style= "float:right">
+          <button onclick="showDropdown(this.innerHTML)" class="dropbtn" id="drpbtn">Click Me!</button>
+               <div id="myDropdown" class="dropdown-content">
+                      <p onclick="selected()" id='l0'>Birthdays</p>
+                      <p onclick="selected()" id="l1">Link 1</p>
+                      <p onclick="selected()" id="l2">Link 2</p>
+                      <p onclick="selected()" id="l3">Link 5</p>
+               </div>
+       </div>
+   </div>
+   <div id="main">
+     <div id="chart" style="width: 480px; height:400px;"></div>
+  <script>
+    var cheight = $("#main").height();
+    var cwidth = $("#main").width();
+    var bheight = $("#drpbtn").height();
+    //$(".dropdown").css('bottom',cheight/2 + bheight*6);
+    //$(".dropdown").css('right','200px');
+    //$(".dropdown").css('display','block');
+  </script>
+</div>
+
+        
+</div>
+
+
+ <footer>
+<p class="backtotop"> <a href="#header">Back to Top</a> </p>
+<p>
+<a href="index.php">Home</a>
+·
+<a href="schedule.php">Schedule</a>
+·
+<a href="newaccount.html">Registration</a>
+·
+<a href="activities.html"> Activities </a>
+·
+<a href="forum.html"> Forum </a>
+·
+<a href="/catalog/cart.php">Catalog</a>
+·
+<a href="visualization.html">Visualization</a>
+</p>
+
+<p>eduCamps 2017 -- Team ?</p>
+
+
+</footer>
+   <script src="/scripts/visualization.js"></script>
+</body>
+
+</html>

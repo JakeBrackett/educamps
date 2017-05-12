@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>eduCamps</title>
+  <link href="img/transparentcaplogo.png" type="image/gif" rel="shortcut icon" />
+  <link rel="stylesheet" type="text/css" href="css/default_layout.css">
+  <link rel="stylesheet" type="text/css" href="css/blockrain.css">
+  <link rel="stylesheet" type="text/css" href="css/activities.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+</head>
+
+<body>
+  <div id="header">
+  </div>
+
+  <div id="id01" class="modal">
+  </div>
+
+<?php session_start(); ?>
+<?php if($_SESSION['valid']): ?>
+ <script src="/scripts/navBarLoggedIn.js"></script>
+<?php else: ?>
+ <script src="/scripts/navBar.js"></script>
+<?php endif; ?>
+
+<div id="maincontent">
+  <div id="js_game">
+  <h3>Javascript</h3>
+  <div class="game"> </div>  
+  <script src="scripts/blockrain.jquery.min.js"></script>
+  <script>
+    //$('.game').blockrain();
+    $('.game').blockrain({ autoplay: true, autoplayRestart: true });
+  </script>
+  <div class="game_des">
+    <p>Above is just one sample of what our camp kids can produce! Our web design camps teach kids how to use advanced Javascript techniques and how to use various
+    libraries to create fun little games like Tetris! Not only that, but the kids will also learn how to embed everything into their very own website.
+    </p>
+  </div>
+
+  </div>
+  <hr>
+  <br>
+  <div id="robotics_game">
+  <h3>Lego Robotics</h3>
+  <br>
+  <div class="videoWrapper">
+       <iframe width="560" height="315" src="https://www.youtube.com/embed/IdqZhIH9DHg" frameborder="0" allowfullscreen align="middle"></iframe>
+  </div>
+  <p>
+       Lego Robotics is a brilliant way to mix the wonders of software with the excitement of hardware. Our camps will teach your kids how to have
+       proper coding techniques and how to create a super cool robots! 
+  </p>
+</div>
+
+</div>
+
+<p class="backtotop"> <a href="#header">Back to Top</a> </p>
+<p>
+<a href="index.php">Home</a>
+·
+<a href="schedule.php">Schedule</a>
+·
+<a href="newaccount.html">Registration</a>
+·
+<a href="activities.html"> Activities </a>
+·
+<a href="forum.html"> Forum </a>
+·
+<a href="/catalog/cart.php">Catalog</a>
+·
+<a href="visualization.html">Visualization</a>
+</p>
+
+<p>eduCamps 2017 -- Team ?</p>
+
+
+
+
+</footer>
+
+</body>
+
+</html>

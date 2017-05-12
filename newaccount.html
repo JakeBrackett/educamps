@@ -1,0 +1,63 @@
+<?php
+    session_start();
+    if($_SESSION["valid"]){
+        header("location: childreg.html");
+    }
+?>
+
+<!DOCTYPE html>
+        <html>
+          <head>
+               <title> eduCamps</title>
+               <link href="img/transparentcaplogo.png" type="image/gif" rel="shortcut icon" />
+              <link rel="stylesheet" href="/css/reg.css">
+              <link rel="stylesheet" href="/css/default_layout.css">
+          </head>
+          <body>
+<div id="header">
+    
+</div>
+<div id="id01" class="modal"></div>
+ <script src="/scripts/navBar.js"></script>
+ 
+            <div id="formBox">
+              <form action="processreg.php" method="POST">
+                <fieldset style="padding:30px"> <legend class="title">Registration Form</legend>
+                    <br><br><br>
+                    <label>First Name:</label><input type="text" name="fname" required><br>
+                    <label>Last Name:</label><input type="text" name="lname" required> <br>
+                    <label>Phone Number:</label><input type="tel" name="phonenum" required><br>
+                    <label>Email:</label><input type="email" name="email" required><br>
+                    <label>Password:</label><input type="password" name="password" required><br>
+                </fieldset>
+                <br>
+                <input id="regsubmit" type="submit">
+            </form> 
+           </div>
+           
+           
+<footer>
+<p class="backtotop"> <a href="#header">Back to Top</a> </p>
+<p>
+<a href="index.php">Home</a>
+·
+<a href="schedule.php">Schedule</a>
+·
+<a href="newaccount.html">Registration</a>
+·
+<a href="activities.html"> Activities </a>
+·
+<a href="forum.html"> Forum </a>
+·
+<a href="catalog/cart.php">Catalog</a>
+·
+<a href="visualization.html">Visualization</a>
+</p>
+
+<p>eduCamps 2017 -- Team ?</p>
+
+
+</footer>
+
+        </body>
+        </html>

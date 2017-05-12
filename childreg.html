@@ -1,0 +1,83 @@
+<html>
+          <head>
+              <title> eduCamps</title>
+               <link href="img/transparentcaplogo.png" type="image/gif" rel="shortcut icon" />
+              <link rel="stylesheet" type="text/css" href="css/default_layout.css">
+              <link rel="stylesheet" href="/css/reg.css">
+              <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+              <script src="/scripts/childreg.js"></script>
+          </head>
+        <body>
+            <div id="header">
+    
+</div>
+<div id="id01" class="modal"></div>
+ <script src="/scripts/navBarLoggedIn.js"></script>
+            <div id="formBox">
+                <form id="campregform" action="childreg.php" method="post">
+                    <fieldset id="mainfs"> 
+                        <legend class="title">Camp Registration:</legend>
+                        <br><br><br>
+                        <fieldset id="child0">
+                            <legend>Child 1</legend>
+                            <br>
+                            <label>Enter Child's Name:</label> 
+                            <input type="text" class ="childname" name="childname[0]" required><br>
+                            <label>Date of Birth:</label>
+                            <input type="date" name="dob[0]"><br>
+                       
+                            <textarea rows=7 cols=100 placeholder="Enter Any Special Notes..."></textarea><br>
+                        </fieldset>
+                        <div id = "buttons">
+                            <button type="button" id="newchild" class="childbutton">(+) Add Another Child</button>
+                        </div>
+                        <p>Children after the first get 10% off!</p>
+                <br><br>
+                       <label>Select Camp Date:</label>
+                              <select id="camps" name="camp">
+                                <option value="summer">Summer</option>
+                              </select>
+                            
+                            <label>Select Activity Type:</label>
+                            <select id="activity" name="activity">
+                                <option value="computer">Computer Activites</option>
+                                <option value="robotics">Robotics</option>
+                            </select><br>
+                <br>
+                
+                <label class="strlabel">Total Price: </label>
+                <input type="text" id="total" name="total" readonly>
+                <input id="regsubmit" type="submit" value="Submit" style="width:25%; float: right">
+                </fieldset>
+                <!-- NEW -->
+                
+                </form>
+            </div>
+            
+<footer>
+<p class="backtotop"> <a href="#header">Back to Top</a> </p>
+<p>
+<a href="index.php">Home</a>
+·
+<a href="schedule.php">Schedule</a>
+·
+<a href="newaccount.html">Registration</a>
+·
+<a href="activities.html"> Activities </a>
+·
+<a href="forum.html"> Forum </a>
+·
+<a href="/catalog/cart.php">Catalog</a>
+·
+<a href="visualization.html">Visualization</a>
+</p>
+
+<p>eduCamps 2017 -- Team ?</p>
+
+
+
+
+</footer>
+
+</body>
+</html>

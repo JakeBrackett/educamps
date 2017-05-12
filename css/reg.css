@@ -1,19 +1,28 @@
 #formBox{
-    padding: 10px;
-    background-color: rgba(181, 252, 181, 0.61);
-    border-radius: 5px;
-}
-#loginBox{
-    padding: 10px;
-    background-color: rgba(181, 252, 181, 0.61);
-    border-radius: 5px;
-    width: 50%;
+    padding: 40px;
+    width: 70%;
     margin: auto;
 }
+
+#formBox form{
+    padding-bottom:40px;
+}
+
+#loginBox{
+    padding: 10px;
+    width: 40%;
+    margin: auto;
+}
+
+#loginBox a{
+    color: #337ab7;
+    text-decoration: none;
+}
+
 h1{
     text-align: center;
 }
-input[type=text], input[type=password] {
+input[type=text], input[type=password], input[type=tel], input[type=email] {
     font-size: 0.8em;
     width: 100%;
     padding: 12px 20px;
@@ -43,11 +52,11 @@ select:focus {
 }
 
 input[type=submit] {
-    width: 40%;
-    background-color: #4CAF50;
+    width: 100%;
+    background-color: #0088cc;
     color: white;
     padding: 14px 20px;
-    margin: auto;
+    margin: 20px auto;
     display: block;
     border: none;
     border-radius: 4px;
@@ -56,24 +65,36 @@ input[type=submit] {
 
 }
 
-input[type=submit]:hover, #newchild:hover {
-    background-color: #45a049;
-}
-
-fieldset {
+#mainfs {
     border-radius: 5px;
     background-color: #f2f2f2;
     padding: 20px;
     position: relative;
+    width: 70%;
+    margin: auto;
+}
+
+#mainfs fieldset{
+    margin: 20px auto;
+}
+
+#child0 {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    position: relative;
+    margin: auto;
 }
 
 legend{
     font-weight: bolder;
-    color: darkgreen;
     position: absolute;
-    top: 3px;
-    margin-bottom: 10px;
     font-size: 1.2em;
+}
+
+.title{
+    color: #0088cc;
+    font-size: 1.6em;
 }
 
 input.childname{
@@ -91,7 +112,6 @@ input[type=date]{
 }
 
 .childbutton {
-    background-color: #4CAF50;
     border: none;
     color: white;
     padding: 15px 32px;
@@ -99,7 +119,7 @@ input[type=date]{
     text-decoration: none;
     display: inline-block;
     font-size: 12px;
-    margin: 4px 2px;
+    margin: 20px 2px;
     cursor: pointer;
     border-radius: 5px;
 }
@@ -128,4 +148,18 @@ label.strlabel{
 
 #msg{
     background-color: red;
+}
+
+#success{
+    max-width: 500px;
+    max-height: 400px;
+}
+
+#successbox{
+    width: 500px;
+    margin: auto;
+    text-align: center;
+}
+#activity{
+    text-transform:capitalize;
 }

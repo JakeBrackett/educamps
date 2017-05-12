@@ -1,137 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
-<head> 
-<meta charset="utf-8" /> 
-<title> Forum </title>
+<head>
+<meta charset="utf-8" />
+<title> eduCamps </title>
 <link href="img/transparentcaplogo.png" type="image/gif" rel="shortcut icon" />
-
-  <link rel="stylesheet" type="text/css" href="css/default_layout.css">
-  <link rel="stylesheet" type="text/css" href="css/forum.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="css/default_layout.css">
+<link rel="stylesheet" type="text/css" href="css/forum.css"> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="/scripts/forum.js"></script>
 
 </head>
 <body>
-    <div id="header">
-        <img id="logo" src="img/educampslogo1.png" alt="Edu Camps">
-            
-        <div id="nav">
-                <ul>
-                    <li> <a href="homepage.html"> Home </a> </li>
-                    <li> <a href="#"> Schedule</a> </li>
-                    <li> <a href="regpage/registrationpage.html"> Registration</a> </li>
-                    <li> <a href="#"> Activities</a> </li>
-                    <li> <a href="#" class="current"> Forum</a> </li>
-                    <li> <a href="#"> Catalog</a> </li>
-                    <li> <a href="#"> Visualization</a> </li>
-                    <li> <a href="#" class="special"> Sign In </a> </li>
-                </ul>
-        </div>
-    </div>
-    
-<div id="slideshow">
-        
+
+<div id="header">
 </div>
+<div id="id01" class="modal"></div>
+<?php session_start(); ?>
+<?php if($_SESSION['valid']): ?>
+ <script src="/scripts/navBarLoggedIn.js"></script>
+<?php else: ?>
+ <script src="/scripts/navBar.js"></script>
+<?php endif; ?>
+
+<div id="slideshow">
+  <br>
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+  
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+
+      <div class="item active">
+        <img src="img/s_computer.jpg" alt="computer">
+        <div class="carousel-caption">
+          <h3>Computer Class</h3>
+        </div>
+      </div>
+
+      <div class="item">
+        <img src="img/s_robotics.jpg" alt="robotics">
+        <div class="carousel-caption">
+          <h3>Robotics Class</h3>
+        </div>
+      </div>
     
+      <div class="item">
+        <img src="img/s_outdoor.jpg" alt="outdoor">
+        <div class="carousel-caption">
+          <h3>Outdoor Class</h3>
+        </div>
+      </div>
+  
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>
+
 <div id="userupload">
-  <form action="" enctype="multipart/form-data" method="post">
-    <input type="hidden" id="forumtype">
-    <button type="button" onclick="uploadText()">Review or Comment</button>
-    <button type="button" onclick="uploadImg()">Upload Pictures</button>
-    <input type="hidden" id="postdate" name="postdate">
-    <script type="text/javascript">
-        document.getElementById('postdate').value = Date();
-    </script>
-    <br><br>
-    <div id="upload" name="upload"></div>
-    <script>
-        function uploadText() {
-            document.getElementById("upload").innerHTML = "";
-            document.getElementById('forumtype').value= "forumposts";
-            var textbox = document.createElement("TEXTAREA");
-            textbox.rows = "8";
-            textbox.id="textbox";
-            document.getElementById("upload").appendChild(textbox);
-            var lnbr = document.createElement("BR");
-            document.getElementById("upload").appendChild(lnbr);
-            var post = document.createElement("INPUT");
-            post.type = "submit";
-            post.value = "POST";
-            document.getElementById("upload").appendChild(post);
-            post.onclick = function() {submit_t()};
-        }
-    
-        function uploadImg() {
-            document.getElementById("upload").innerHTML = "";
-            document.getElementById('forumtype').value= "memories";
-            var cap = document.createElement("INPUT");
-            cap.id="caption";
-            cap.type = "text";
-            cap.placeholder = "Add a Caption";
-            cap.maxLength = 100;
-            cap.value="My Memories";
-            document.getElementById("upload").appendChild(cap);
-            var lnbr = document.createElement("BR");
-            document.getElementById("upload").appendChild(lnbr);
-            var imgs = document.createElement("INPUT");
-            imgs.type = "file";
-            imgs.id="imgs";
-            document.getElementById("upload").appendChild(imgs);
-            var post = document.createElement("INPUT");
-            post.type = "submit";
-            post.value = "UPLOAD";
-            document.getElementById("upload").appendChild(post);
-            post.onclick = function() {submit_i()};
-        }
-    
-        function submit_i(){
-            alert("Your image is submitted! Refresh page to see.");
-        }
-    
-        function submit_t(){
-            alert("Your review is submitted! Refresh page to see.");
-        }
-    </script>
+
+<form name="forumpost" action="forumpost.php" enctype="multipart/form-data" onsubmit="return validateForm()" method="post">
+<input type="hidden" id="forumtype" name="forumtype">
+<?php if($_SESSION['valid']): ?>
+<button type="button" onclick="uploadText()">Review or Comment</button>
+<button type="button" onclick="uploadImg()">Upload Pictures</button>
+<?php else: ?>
+<br>
+<h4><b>You must be logged in to post to the Forum.</b></h4>
+<?php endif; ?>
+<br><br>
+<div id="upload" name="upload"></div>
 </form>
 </div>
 <br>
 <hr>
 <br>
-<div id="review" name="review">
-    <h3> Reviews </h3>
-<!--    <?PHP
-        $db = mysql-connect( );
-        mysql_select_db(" ");
-        $posts=mysql_query("SELECT text FROM forumposts ORDER BY postdate");
-        while ($post=mysql_fetch_array($posts)){
-    ?>
-        <p> <?= $post ?> </p>
-        <hr>
-    <?PHP
-        }
-    ?>
--->
-    
+<div id="review">
+<h2> Reviews </h2>
+
+<div id="posts"></div>
+
 </div>
 
-
 <footer>
-    <p class="backtotop"> <a href="#header">Back to Top</a> </p>
-				<p>
-                <a href="#nav">Home</a>
-                ·
-                <a href="#">Contact Us</a>
-                ·
-                <a href="#">Schedule</a>
-                ·
-                <a href="#">About</a>
-                ·
-                <a href="#">Faq</a>
-                ·
-                <a href="#">Registration</a>
-                </p>
-                
-                <p>eduCamps 2017 -- Team ?</p>
-                
-                
+<p class="backtotop"> <a href="#header">Back to Top</a> </p>
+<p>
+<a href="index.php">Home</a>
+·
+<a href="schedule.php">Schedule</a>
+·
+<a href="newaccount.html">Registration</a>
+·
+<a href="activities.html"> Activities </a>
+·
+<a href="forum.html"> Forum </a>
+·
+<a href="catalog/cart.php">Catalog</a>
+·
+<a href="visualization.html">Visualization</a>
+</p>
+
+<p>eduCamps 2017 -- Team ?</p>
+
+
 </footer>
+
+
+
 </body>
+
 
